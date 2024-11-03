@@ -1,6 +1,6 @@
 
 
-SRC_FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
 
 SRCDIR =
 OBJ_D = objs
