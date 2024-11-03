@@ -12,7 +12,7 @@ int main (int argc, char **argv)
 	while (true)
 	{
 		std::cout << "\033[1;36mEnter ADD, SEARCH OR EXIT : \033[0m";
-		std::cin >> number;
+		std::getline(std::cin, number);
 		std::cin.eof();
 		if (std::cin.eof() || std::cin.fail())
 		{
