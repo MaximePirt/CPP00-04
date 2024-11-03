@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 class PhoneBook
 {
@@ -14,9 +15,9 @@ class PhoneBook
 		int		Add_contact_input();
 		int		sort_input(const std::string& str);
 		int		Search_Action();
-		int		Print_Cell(std::string input);
-
-	~PhoneBook();
+		void	Print_Contact_List();
+		int		Print_Cell(std::string	input);
+		~PhoneBook();
 	private :
 		int			index;
 		Contact	profile[8];
