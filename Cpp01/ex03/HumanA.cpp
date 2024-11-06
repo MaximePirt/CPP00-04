@@ -2,7 +2,6 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(&weapon)
 {
-//	this->set_name(name);
 	std::cout << this->name << " has been created" << std::endl;
 }
 
