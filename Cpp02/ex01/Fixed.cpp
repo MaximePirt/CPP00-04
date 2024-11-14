@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(){
-	this->fixed_point_number = 0;
+Fixed::Fixed(const int param){
+	this->fixed_point_number = param;
 	std::cout << "Default constructor called" << std::endl;
 }
 

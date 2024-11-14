@@ -7,7 +7,7 @@
 class Fixed
 {
 	public:
-		Fixed();
+		Fixed(const int param);
 		Fixed(const Fixed &old);
 		Fixed &operator=(const Fixed &old);
 		~Fixed();
