@@ -64,43 +64,43 @@ static int Check_Alpha(std::string str)
 	return (0);
 }
 
-static int Filling_tab(std::vector<std::string> *answer)
+static int Filling_tab(std::string *answer)
 {
 	std::string input;
 	std::cout << "\033[1;33mEnter your Contact First Name\033[0m" << std::endl;
 	std::getline(std::cin, input);
 	if (Check_Alpha(input) || Is_Eof() || Is_Empty(input))
 		return (1);
-	answer->push_back(input);
+	answer[0] = input;
 	std::cout << "\033[1;33mEnter your Contact Last Name\033[0m" << std::endl;
 	std::getline(std::cin, input);
 	if (Check_Alpha(input) || Is_Eof() || Is_Empty(input))
 		return (1);
-	answer->push_back(input);
+	answer[1] = input;
 	std::cout << "\033[1;33mEnter your Contact Nickname\033[0m" << std::endl;
 	std::getline(std::cin, input);
 	if (Is_Eof() || Is_Empty(input))
 		return (1);
-	answer->push_back(input);
+	answer[2] = input;
 	std::cout << "\033[1;33mEnter your Contact Phone number\033[0m" << std::endl;
 	std::getline(std::cin, input);
 	if (Check_Phone_Number(input) || Is_Eof() || Is_Empty(input))
 		return (1);
-	answer->push_back(input);
+	answer[3] = input;
 	std::cout << "\033[1;33mEnter your Contact Darkest Secret\033[0m" << std::endl;
 	std::getline(std::cin, input);
 	if (Is_Eof() || Is_Empty(input))
 		return (1);
-	answer->push_back(input);
+	answer[4] = input;
 	std::cout << "\033[1;32mAdding your contact to the Phonebook...\033[0m" << std::endl;
 	return (0);
 }
 
 int	PhoneBook::Add_contact_input()
 {
-	std::vector<std::string> answer;
+	std::string	answer[5];
 
-	if (Filling_tab(&answer))
+	if (Filling_tab(answer))
 		return (1);
 	int position = this->index % 8;
 	this->profile[position].set_first_name(answer[0]);
@@ -121,49 +121,7 @@ int	PhoneBook::add_contact()
 	return (0);
 }
 
-void	tab_split(std::vector< std::vector<std::string> >& columns, size_t numColumns,
-				 const  std::vector<std::string> tab)
-{
-	for (size_t i = 0; i < numColumns; ++i)
-	{
-		size_t start = 0;
-		size_t len = tab[i].length();
-		while (start < len)
-		{
-			std::string segment = tab[i].substr(start, 9);
-			if (start + 9 < len)
-				segment += ".";
-			columns[i].push_back(segment);
-			start += 9;
-		}
-	}
-}
-
-void	print_display(std::vector<std::string> tab, int max_height)
-{
-	const size_t numColumns = tab.size();
-	std::vector< std::vector<std::string> > columns(numColumns);
-	tab_split(columns, numColumns, tab);
-	for (size_t i = 0; i < columns.size(); ++i)
-	{
-		if (columns[i].size() > (size_t)max_height)
-			max_height = columns[i].size();
-	}
-	for (int row = 0; row < max_height; ++row)
-	{
-		for (size_t col = 0; col < numColumns; ++col)
-		{
-			std::string segment = "";
-			if (row < (int)columns[col].size())
-				segment = columns[col][row];
-			std::cout << std::setw(10) << std::right << segment << "|";
-		}
-		if (row + 1 < max_height)
-			std::cout << std::endl;
-	}
-}
-
-int	Calculate_Height(std::vector<std::string> tab)
+int	Calculate_Height(std::string *tab)
 {
 	int res;
 	int tmp;
@@ -194,23 +152,36 @@ void	print_table()
 	std::cout << std::left << std::setfill(' ');
 }
 
+void	print_display(std::string *tab)
+{
+	for (int i = 0; i < 5; i++)
+	{
+		int len = tab[i].length();
+		if (len > 10)
+			tab[i] = tab[i].substr(0, 9) + ".";
+		for(int k = 10; k > len; k--)
+			std::cout << " ";
+		if (i < 4)
+			std::cout << tab[i] << "|";
+	}
+	std::cout << std::endl;
+
+}
+
 void	PhoneBook::Print_Contact_List()
 {
-	int max_height;
-
 	for(int i = 0; i < 8; i++)
 	{
 		if (i + 1 > this->index)
 			continue ;
-		std::vector<std::string> tab;
+		std::string tab[4];
 		std::stringstream tmp;
 		tmp << i + 1;
-		tab.push_back(tmp.str());
-		tab.push_back(this->profile[i].get_first_name());
-		tab.push_back(this->profile[i].get_last_name());
-		tab.push_back(this->profile[i].get_nickname());
-		max_height = Calculate_Height(tab);
-		print_display(tab, max_height);
+		tab[0] = tmp.str();
+		tab[1] = this->profile[i].get_first_name();
+		tab[2] = this->profile[i].get_last_name();
+		tab[3] = this->profile[i].get_nickname();
+		print_display(tab);
 		std::cout << "\n" << std::setfill('-') << std::setw(10) << "-" << "+"
 				  << std::setw(10) << "-" << "+"
 				  << std::setw(10) << "-" << "+"
@@ -230,7 +201,7 @@ int	PhoneBook::Print_Cell(std::string	input)
 	}
 	if (this->profile[position].get_first_name().length() == 0)
 	{
-		std::cout << "\033[1;31mThis Contact doesn't have any information\033[0m" << std::endl;
+		std::cout << "\033[1;31mThis Contact doesn't have any information yet\033[0m" << std::endl;
 		return (1);
 	}
 	std::cout << "\033[1;35mFirst Name : \033[0m" << this->profile[position].get_first_name() << std::endl;
