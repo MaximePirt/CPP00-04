@@ -14,8 +14,5 @@ int main (void)
 	std::cout << "\nHarl with wrong input" << std::endl;
 	Harl.complain("ifhjweifhwef");
 	std::cout << std::endl;
-
-
-
 	return (0);
 }

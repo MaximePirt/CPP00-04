@@ -1,5 +1,4 @@
 #include "Harl.hpp"
-
 Harl::Harl()
 {
 	std::cout << "Harl has been created" << std::endl;
@@ -30,21 +29,23 @@ void	Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	std::vector<std::pair<std::string, void (Harl::*)()> > action_choice;
-	action_choice.push_back(std::pair<std::string, void(Harl::*)()>("debug", &Harl::debug));
-	action_choice.push_back(std::pair<std::string, void(Harl::*)()>("info", &Harl::info));
-	action_choice.push_back(std::pair<std::string, void(Harl::*)()>("warning", &Harl::warning));
-	action_choice.push_back(std::pair<std::string, void(Harl::*)()>("error", &Harl::error));
+	s_action_choice action;
+
+	action.debug = std::pair<std::string, void(Harl::*)()>("debug", &Harl::debug);
+	action.info = std::pair<std::string, void(Harl::*)()>("info", &Harl::info);
+	action.warning = std::pair<std::string, void(Harl::*)()>("warning", &Harl::warning);
+	action.error = std::pair<std::string, void(Harl::*)()>("error", &Harl::error);
 
 	void (Harl::*selected_choice)(void) = NULL;
-	for(std::vector<std::pair<std::string, void(Harl::*)(void)> >::iterator tmp = action_choice.begin(); tmp != action_choice.end(); tmp++)
-	{
-		if (tmp->first == level)
-		{
-			selected_choice = tmp->second;
-			break;
-		}
-	}
+
+		if (action.debug.first == level)
+			selected_choice = action.debug.second;
+		else if (action.info.first == level)
+			selected_choice = action.info.second;
+		else if (action.warning.first == level)
+			selected_choice = action.warning.second;
+		else if (action.error.first == level)
+			selected_choice = action.error.second;
 	if (!selected_choice)
 	{
 		std::cerr << "Invalid input, Harl only take \"debug\" \"info\" \"warning\" or \"error\" as an input" << std::endl;

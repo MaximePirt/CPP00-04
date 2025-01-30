@@ -6,7 +6,6 @@
 #include <vector>
 #include <utility>
 
-
 class Harl
 {
 	public:
@@ -19,5 +18,15 @@ class Harl
 			void	warning(void);
 			void	error(void);
 };
+
+typedef	struct	s_action_choice
+{
+	std::pair<std::string, void(Harl::*)()>	debug;
+	std::pair<std::string, void(Harl::*)()> info;
+	std::pair<std::string, void(Harl::*)()> warning;
+	std::pair<std::string, void(Harl::*)()> error;
+
+}	t_action_choice;
+
 
 #endif
