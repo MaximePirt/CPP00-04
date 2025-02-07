@@ -5,7 +5,7 @@ int main()
 {
 	// Creations
 	ClapTrap Clap("Trap");
-	ScavTrap Scav("bite");
+	ScavTrap Scav("scavvv");
 	ScavTrap Forgot;
 
 	// Attack  to check scavtrap stats
