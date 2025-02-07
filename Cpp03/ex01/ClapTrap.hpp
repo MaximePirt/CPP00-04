@@ -8,14 +8,16 @@ class ClapTrap
 {
 	public:
 	// Constructor and Destructor
-		ClapTrap(std::string name = "ClapName");
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &obj);
 		~ClapTrap();
 	// ClapTrap functions
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-	private:
+	protected:
 		std::string name;
 		unsigned int hitpoints;
 		unsigned int energy_points;

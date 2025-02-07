@@ -8,7 +8,9 @@ class ClapTrap
 {
 	public:
 	// Constructor and Destructor
-		ClapTrap(std::string name = "ClapName");
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &obj);
 		~ClapTrap();
 	// ClapTrap functions
 		void attack(const std::string& target);

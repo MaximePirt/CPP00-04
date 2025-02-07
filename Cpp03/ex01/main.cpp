@@ -1,30 +1,44 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
 	// Creations
 	ClapTrap Clap("Trap");
-	ClapTrap Clap2("Second_trap_which_do_nothing");
+	ScavTrap Scav("bite");
+	ScavTrap Forgot;
 
-	Clap.attack("John the bad guy");
-	Clap.takeDamage(5);
-	Clap.attack("John the bad guy");
-	Clap.attack("John the bad guy");
-	Clap.beRepaired(2);
-	Clap.takeDamage(5);
-	Clap.takeDamage(5);
-	Clap.attack("John the bad guy");
-	Clap.attack("John the bad guy");
-	Clap.attack("John the bad guy");
-	Clap.attack("John the bad guy");
-	Clap.attack("John the bad guy");
-	Clap.takeDamage(5);
-	Clap.beRepaired(2);
-	Clap.beRepaired(2);
-	Clap.beRepaired(2);
-	Clap.beRepaired(2);
+	// Attack  to check scavtrap stats
+	Scav.attack("John the bad guy");
+	Scav.takeDamage(5);
+	Scav.attack("John the bad guy");
+	Scav.attack("John the bad guy");
+	Scav.beRepaired(2);
+	Scav.takeDamage(5);
+	Scav.takeDamage(5);
+	Scav.attack("John the bad guy");
+	Scav.attack("John the bad guy");
+	Scav.attack("John the bad guy");
+	Scav.attack("John the bad guy");
+	Scav.attack("John the bad guy");
+	Scav.takeDamage(5);
+	Scav.beRepaired(2);
+	Scav.beRepaired(2);
+	Scav.beRepaired(2);
+	Scav.beRepaired(2);
+
+	// called copy constructor
+	ScavTrap Scavbis(Scav);
+	// check life dependance
+	Scavbis.takeDamage(20);
+
+	// check guard mod boolean
+	Scav.guard_mode();
+	Scav.guard_mode();
+	Scav.guard_mode();
+	Scav.guard_mode();
+	Scav.guard_mode();
 
 
-
-	return 0;
+	return (0);
 }

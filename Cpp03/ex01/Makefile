@@ -1,4 +1,4 @@
-SRC_FILES = main.cpp ClapTrap.cpp
+SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 SRCDIR =
 OBJ_D = objs
@@ -6,7 +6,7 @@ OBJ_FILES = $(SRC_FILES:%.cpp=$(OBJ_D)/%.o)
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = ClapStart
+NAME = Scav_Discovery
 RM = rm -rf
 
 DEFCOLOR = \033[0;39m

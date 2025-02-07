@@ -1,5 +1,15 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void)
+{
+	this->name = "Forgot Clap_Name";
+	this->attack_damage = 0;
+	this->hitpoints = 10;
+	this->energy_points = 10;
+	std::cout << "ClapTrap [" << this->name << "] has been created" << std::endl;
+	return ;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
@@ -7,6 +17,16 @@ ClapTrap::ClapTrap(std::string name)
 	this->hitpoints = 10;
 	this->energy_points = 10;
 	std::cout << "ClapTrap [" << this->name << "] has been created" << std::endl;
+	return ;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &obj)
+{
+	this->name = obj.name;
+	this->attack_damage = obj.attack_damage;
+	this->hitpoints = obj.hitpoints;
+	this->energy_points = obj.energy_points;
+	std::cout << "ClapTrap Copy Constructor Called" << std::endl;
 	return ;
 }
 
