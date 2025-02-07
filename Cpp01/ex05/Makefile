@@ -6,7 +6,7 @@ OBJ_FILES = $(SRC_FILES:%.cpp=$(OBJ_D)/%.o)
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = Harl.0
+NAME = Harl2.0
 RM = rm -rf
 
 DEFCOLOR = \033[0;39m
