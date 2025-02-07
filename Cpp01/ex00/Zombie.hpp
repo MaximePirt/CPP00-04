@@ -7,7 +7,7 @@
 class Zombie
 {
 	public:
-		Zombie(std::string name = "<name>");
+		Zombie(std::string name = "LeSansNom");
 		std::string	get_zombie_name();
 		void		set_zombie_name(const std::string &str);
 		void		announce(void);

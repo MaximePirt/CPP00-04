@@ -16,14 +16,14 @@ int main (int argc, char **argv)
 		std::cerr << "Error: [" << argv[1] << "] can't be open." << std::endl;
 		return (1);
 	}
-	std::string	tmp = argv[1];
-	tmp += ".replace";
-	std::ofstream outputFile(tmp);
-	if (!outputFile)
-	{
-		std::cerr << "Error: [" << tmp << "] can't be open" << std::endl;
-		return (1);
-	}
+	std::string tmp = argv[1];
+    tmp += ".replace";
+    std::ofstream outputFile(tmp.c_str(), std::ios::out);
+    if (!outputFile)
+    {
+        std::cerr << "Error: [" << tmp << "] can't be opened" << std::endl;
+        return (1);
+    }
 	std::string line;
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
