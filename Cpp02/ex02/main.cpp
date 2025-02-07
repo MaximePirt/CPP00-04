@@ -1,43 +1,68 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-
-
-int main(void) {
-
-    std::cout << "===== TEST BASIC CONSTRUCTORS AND ASSIGNMENTS =====" << std::endl;
-
+int main() {
+    std::cout << "========== TEST DES CONSTRUCTEURS ==========" << std::endl;
     Fixed a;
-    Fixed const b(10);
-    Fixed const c(42.42f);
-    Fixed const d(b);
-
+    Fixed  b(10);
+    Fixed  c(42.42f);
+    Fixed  d(b);
     a = Fixed(1234.4321f);
 
-    std::cout << "\n===== TEST VALUES (FLOAT DISPLAY) =====" << std::endl;
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
+    std::cout << "\n========== TEST DE L'AFFICHAGE ==========" << std::endl;
+    std::cout << "a = " << a << std::endl;
+    std::cout << "b = " << b << std::endl;
+    std::cout << "c = " << c << std::endl;
+    std::cout << "d = " << d << std::endl;
 
-    std::cout << "\n===== TEST INTEGER CONVERSIONS =====" << std::endl;
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    std::cout << "\n========== TEST DE LA CONVERSION ==========" << std::endl;
+    std::cout << "a en int: " << a.toInt() << std::endl;
+    std::cout << "b en int: " << b.toInt() << std::endl;
+    std::cout << "c en int: " << c.toInt() << std::endl;
+    std::cout << "d en int: " << d.toInt() << std::endl;
 
-    std::cout << "\n===== TEST EDGE CASES =====" << std::endl;
-    Fixed const e(-5.5f);
-    Fixed const f(0);
-    Fixed const g(0.00390625f);  // Smallest value for fractional_bit_number = 8
-    Fixed const h(999999.99f);
-    Fixed const i(-999999.99f);
+    std::cout << "\n========== TEST DES COMPARAISONS ==========" << std::endl;
+    std::cout << "b > c : " << (b > c) << std::endl;
+    std::cout << "b < c : " << (b < c) << std::endl;
+    std::cout << "b >= d : " << (b >= d) << std::endl;
+    std::cout << "b <= d : " << (b <= d) << std::endl;
+    std::cout << "b == d : " << (b == d) << std::endl;
+    std::cout << "b != d : " << (b != d) << std::endl;
 
-    std::cout << "e (-5.5) is " << e << " | as integer: " << e.toInt() << std::endl;
-    std::cout << "f (0) is " << f << " | as integer: " << f.toInt() << std::endl;
-    std::cout << "g (0.00390625) is " << g << " | as integer: " << g.toInt() << std::endl;
-    std::cout << "h (999999.99) is " << h << " | as integer: " << h.toInt() << std::endl;
-    std::cout << "i (-999999.99) is " << i << " | as integer: " << i.toInt() << std::endl;
+    std::cout << "\n========== TEST DES OPERATEURS ARITHMETIQUES ==========" << std::endl;
+    Fixed e = b + c;
+    Fixed f = c - b;
+    Fixed g = b * c;
+    Fixed h = c / b;
+
+    std::cout << "b + c = " << e << std::endl;
+    std::cout << "c - b = " << f << std::endl;
+    std::cout << "b * c = " << g << std::endl;
+    std::cout << "c / b = " << h << std::endl;
+
+    std::cout << "\n========== TEST DE L'INCREMENTATION ET DECREMENTATION ==========" << std::endl;
+    Fixed i;
+    std::cout << "i initial: " << i << std::endl;
+    std::cout << "Pre-increment: " << ++i << std::endl;
+    std::cout << "Post-increment: " << i++ << std::endl;
+    std::cout << "Après post-increment: " << i << std::endl;
+    std::cout << "Pre-decrement: " << --i << std::endl;
+    std::cout << "Post-decrement: " << i-- << std::endl;
+    std::cout << "Après post-decrement: " << i << std::endl;
+
+    std::cout << "\n========== TEST DES FONCTIONS MIN ET MAX ==========" << std::endl;
+    std::cout << "Min entre b et c: " << Fixed::min(b, c) << std::endl;
+    std::cout << "Max entre b et c: " << Fixed::max(b, c) << std::endl;
+
+    std::cout << "\n========== TEST DES EXTREMES ET VALEURS NEGATIVES ==========" << std::endl;
+    Fixed neg1(-42.42f);
+    Fixed neg2(-10);
+    std::cout << "neg1: " << neg1 << std::endl;
+    std::cout << "neg2: " << neg2 << std::endl;
+    std::cout << "neg1 + neg2 = " << (neg1 + neg2) << std::endl;
+    std::cout << "neg1 - neg2 = " << (neg1 - neg2) << std::endl;
+    std::cout << "neg1 * neg2 = " << (neg1 * neg2) << std::endl;
+    std::cout << "neg1 / neg2 = " << (neg1 / neg2) << std::endl;
 
     return 0;
 }
