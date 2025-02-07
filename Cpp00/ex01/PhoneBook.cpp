@@ -191,26 +191,26 @@ void	PhoneBook::Print_Contact_List()
 
 int	PhoneBook::Print_Cell(std::string	input)
 {
-	int position;
+    int position;
 
-	position = std::stoi(input) - 1;
-	if (!(position > -1 && position < 8))
-	{
-		std::cout << "\033[1;31mIndex doesn't exist, please choose between 1 and 8\033[0m" << std::endl;
-		return (1);
-	}
-	if (this->profile[position].get_first_name().length() == 0)
-	{
-		std::cout << "\033[1;31mThis Contact doesn't have any information yet\033[0m" << std::endl;
-		return (1);
-	}
-	std::cout << "\033[1;35mFirst Name : \033[0m" << this->profile[position].get_first_name() << std::endl;
-	std::cout << "\033[1;35mLast Name : \033[0m" << this->profile[position].get_last_name() << std::endl;
-	std::cout << "\033[1;35mNickName : \033[0m" << this->profile[position].get_nickname() << std::endl;
-	std::cout << "\033[1;35mPhone Number : \033[0m" << this->profile[position].get_phone_number() << std::endl;
-	std::cout << "\033[1;35mDarkest secret : \033[0m" << this->profile[position].get_secret() << std::endl;
-	std::cout << std::endl;
-	return (0);
+    position = atoi(input.c_str()) - 1;
+    if (!(position >= 0 && position < 8))
+    {
+        std::cout << "\033[1;31mIndex doesn't exist, please choose between 1 and 8\033[0m" << std::endl;
+        return (1);
+    }
+    if (this->profile[position].get_first_name().length() == 0)
+    {
+        std::cout << "\033[1;31mThis Contact doesn't have any information yet\033[0m" << std::endl;
+        return (1);
+    }
+    std::cout << "\033[1;35mFirst Name : \033[0m" << this->profile[position].get_first_name() << std::endl;
+    std::cout << "\033[1;35mLast Name : \033[0m" << this->profile[position].get_last_name() << std::endl;
+    std::cout << "\033[1;35mNickName : \033[0m" << this->profile[position].get_nickname() << std::endl;
+    std::cout << "\033[1;35mPhone Number : \033[0m" << this->profile[position].get_phone_number() << std::endl;
+    std::cout << "\033[1;35mDarkest secret : \033[0m" << this->profile[position].get_secret() << std::endl;
+    std::cout << std::endl;
+    return (0);
 }
 
 int	PhoneBook::Search_Action()
