@@ -4,8 +4,6 @@
 #include <iostream>
 #include <cmath>
 
-//>, <, >=, <=, == and !=
-
 class Fixed
 {
 	public:
@@ -48,23 +46,7 @@ class Fixed
 		static const int fractional_bit_number = 8;
 };
 
-// Overload of the << operator
 std::ostream &operator <<(std::ostream &out, const Fixed &obj);
-
-// Overload of the comparison operators
-// bool operator >(const Fixed &obj);
-// bool operator <(const Fixed &obj);
-// bool operator >=(const Fixed &obj);
-// bool operator <=(const Fixed &obj);
-// bool operator ==(const Fixed &obj);
-// bool operator !=(const Fixed &obj);
-// Overload of the arithmetic operators
-// Fixed operator +(const Fixed &obj);
-// Fixed operator -(const Fixed &obj);
-// Fixed operator *(const Fixed &obj);
-// Fixed operator /(const Fixed &obj);
-
-
 
 
 #endif
