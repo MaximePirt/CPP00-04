@@ -14,11 +14,18 @@ Cat::Cat(const Cat &obj) : Animal(obj)
 
 }
 
+Cat &Cat::operator=(const Cat &old)
+{
+	if (this != &old)
+		this->type = old.type;
+	return (*this);
+}
+
 Cat::~Cat()
 {
 	std::cout << "Oh my god we just destroyed a " << this->type << std::endl;
 }
-void makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "MIAAAAAOUUUUUUUUUU   ...    MIAOUUUUUU" << std::endl;
 }

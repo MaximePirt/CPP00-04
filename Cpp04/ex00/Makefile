@@ -1,10 +1,10 @@
-SRC_FILES = main.cpp Cat.cpp Dog.cpp Animal.cpp
+SRC_FILES = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp
 
 SRCDIR =
 OBJ_D = objs
 OBJ_FILES = $(SRC_FILES:%.cpp=$(OBJ_D)/%.o)
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -g -Wall -Werror -Wextra -std=c++98
 
 NAME = Polymorphism
 RM = rm -rf

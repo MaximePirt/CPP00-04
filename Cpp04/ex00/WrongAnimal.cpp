@@ -1,27 +1,27 @@
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal(void)
+WrongAnimal::WrongAnimal(void)
 {
-	this->type = "Strange_Animal";
+	this->type = "Strange_WrongAnimal";
 	std::cout << "A " << this->type << " has been created, be careful" << std::endl;
 
 }
 
-Animal::Animal(std::string name)
+WrongAnimal::WrongAnimal(std::string name)
 {
 	this->type = name;
 	std::cout << "A " << this->type << " has been created" << std::endl;
 
 }
 
-Animal::Animal(const Animal &obj)
+WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 {
 	this->type = obj.type;
 	std::cout << "A copy of " << this->type << " has been created" << std::endl;
 
 }
 
-Animal &Animal::operator=(const Animal &old)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &old)
 {
 	if (this != &old)
 		this->type = old.type;
@@ -29,17 +29,17 @@ Animal &Animal::operator=(const Animal &old)
 }
 
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 	std::cout << "Oh my god, they destroyed a " << this->type << std::endl;
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
-	std::cout << "Shkroutch shkroutch.. what a strange noise..." << std::endl;
+	std::cout << "Shkroutch shkroutch.. OHMYGOD A WRONG STRANGE ANIMAL IS HERE" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
 	return(this->type);
 }

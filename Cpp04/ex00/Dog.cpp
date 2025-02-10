@@ -14,12 +14,19 @@ Dog::Dog(const Dog &obj) : Animal(obj)
 
 }
 
+Dog &Dog::operator=(const Dog &old)
+{
+	if (this != &old)
+		this->type = old.type;
+	return (*this);
+}
+
 Dog::~Dog()
 {
 	std::cout << "A " << this->type << " has been destroyed" << std::endl;
 }
 
-void makeSound()
+void Dog::makeSound() const
 {
 	std::cout << "Bark bark" << std::endl;
 }
