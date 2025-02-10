@@ -28,6 +28,18 @@ FragTrap::FragTrap(const FragTrap &obj) : ClapTrap(obj)
 	std::cout << "Copy constructor " << name << " has been called" << std::endl;
 }
 
+FragTrap &FragTrap::operator=(const FragTrap &old)
+{
+	if (this != &old)
+	{
+		this->name = old.name;
+		this->attack_damage = old.attack_damage;
+		this->hitpoints = old.hitpoints;
+		this->energy_points = old.energy_points;
+	}
+	return (*this);
+}
+
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap " << this->name << " has been destroyed" << std::endl;

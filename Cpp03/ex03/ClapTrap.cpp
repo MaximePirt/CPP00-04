@@ -30,6 +30,18 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 	return ;
 }
 
+ClapTrap &ClapTrap::operator=(const ClapTrap &old)
+{
+	if (this != &old)
+	{
+		this->name = old.name;
+		this->attack_damage = old.attack_damage;
+		this->hitpoints = old.hitpoints;
+		this->energy_points = old.energy_points;
+	}
+	return (*this);
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap [" << this->name << "] has been destroyed" << std::endl;

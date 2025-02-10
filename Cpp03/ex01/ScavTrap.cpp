@@ -30,6 +30,19 @@ ScavTrap::ScavTrap(const ScavTrap &obj): ClapTrap(obj)
     std::cout << "Copy constructor ScavTrap called !" << std::endl;
 }
 
+ScavTrap &ScavTrap::operator=(const ScavTrap &old)
+{
+	if (this != &old)
+	{
+		this->name = old.name;
+		this->attack_damage = old.attack_damage;
+		this->hitpoints = old.hitpoints;
+		this->energy_points = old.energy_points;
+		this->GateKeeperMode = old.GateKeeperMode;
+	}
+	return (*this);
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << name << " Has been destroyed" << std::endl;
