@@ -59,6 +59,7 @@ void	Cat::print_cat_idea(int index) const
 	if (index < 0 || index > 99)
 	{
 		std::cout << "Your cat's brain isn't big enough for that's much idea" << std::endl;
+		return ;
 	}
 	std::string tmp;
 	tmp = this->_cat_brain->get_ideas(index);

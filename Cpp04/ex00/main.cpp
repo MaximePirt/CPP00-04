@@ -28,6 +28,11 @@ int main()
 	std::cout << "----------       -------------" << std::endl;
 	std::cout << "----------END--TEST------------" << std::endl;
 	wrong_meta->makeSound();
+	delete meta;
+	delete this_is_a_dog;
+	delete this_is_a_cat;
+	delete wrong_meta;
+	delete wronnnng_cat;
 
 return 0;
 }
