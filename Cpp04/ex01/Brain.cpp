@@ -40,8 +40,8 @@ std::string	Brain::get_ideas(int index)
 {
 	if (index < 0 || index > 99)
 	{
-		std::cout << "Get ideas failed" << std::endl;
-		return (NULL);
+		std::cout << "Get ideas failed, rest of the programs will probably not work as expected" << std::endl;
+		return ("");
 	}
 	return (this->_ideas[index]);
 }

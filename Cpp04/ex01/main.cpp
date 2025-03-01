@@ -15,6 +15,21 @@ int main()
 	delete i;
 
 	std::cout << "----------       -------------" << std::endl;
+	std::cout << "Array test" << std::endl;
+	std::cout << "----------       -------------" << std::endl;
+
+	const int size = 100;
+    Animal* animals[size];
+
+    for (int i = 0; i < size / 2; i++)
+        animals[i] = new Dog();
+    for (int i = size / 2; i < size; i++)
+        animals[i] = new Cat();
+
+    for (int i = 0; i < size; i++)
+		delete animals[i];
+
+	std::cout << "----------       -------------" << std::endl;
 	std::cout << "My test" << std::endl;
 	std::cout << "----------       -------------" << std::endl;
     Dog myDog;

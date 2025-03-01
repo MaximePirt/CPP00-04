@@ -67,3 +67,4 @@ void	Cat::print_cat_idea(int index) const
 		return ;
 	std::cout << "Cat's idea number " << index << " " << tmp << std::endl; 
 }
+

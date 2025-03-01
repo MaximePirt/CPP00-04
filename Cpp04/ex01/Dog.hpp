@@ -14,10 +14,10 @@ class Dog : public Animal
 		~Dog();
 		void 		makeSound() const;
 		void		set_idea(const std::string &idea);
-		std::string	get_ideas(int index);
 		void		print_dog_idea(int index) const;
 	private:
 		Brain *_dog_brain;
+		std::string	get_ideas(int index);
 
 };
 

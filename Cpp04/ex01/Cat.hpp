@@ -13,10 +13,11 @@ class Cat : public Animal
 		~Cat();
 		void makeSound() const;
 		void		set_idea(const std::string &idea);
-		std::string	get_ideas(int index);
 		void		print_cat_idea(int index) const;
 	private:
 		Brain *_cat_brain;
+		std::string	get_ideas(int index);
+
 };
 
 
