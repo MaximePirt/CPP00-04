@@ -1,0 +1,18 @@
+title: CPP00-04
+origin: "42"
+domains: [systems]
+summary:
+  fr: 42 • C++ / OOP
+  en: 42 • C++ / OOP
+description:
+  fr: >
+    Exercices des modules C++00 à C++04 du cursus 42 : classes et namespaces,
+    gestion mémoire (pile/tas, pointeurs, références), forme canonique
+    orthodoxe et surcharge d'opérateurs, héritage simple/multiple/diamant, et
+    polymorphisme avec classes abstraites et interfaces.
+  en: >
+    Exercises from 42's C++00 to C++04 modules: classes and namespaces,
+    memory management (stack/heap, pointers, references), the orthodox
+    canonical form and operator overloading, single/multiple/diamond
+    inheritance, and polymorphism with abstract classes and interfaces.
+stack: [C++, Makefile, Docker]
